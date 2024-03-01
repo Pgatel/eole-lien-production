@@ -7,7 +7,7 @@ import anvil.server
 import pandas as pd
 
 def csv_to_df(f):
-  df = pd.read_csv(data_files[f], index_col=0, sep=';')
+  df = pd.read_csv(data_files[f], sep=';')
   return df
 
 def prepare_data(df):
