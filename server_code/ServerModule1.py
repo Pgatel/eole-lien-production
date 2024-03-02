@@ -19,7 +19,11 @@ def create_plots():
     ))
   figure.update_layout(
       margin=dict(t=10, b=30, l=10, r=10),
-      xhoverformat = '%Y-%m')
+      paper_bgcolor='#363636',
+      bargap=0.5,
+      plot_bgcolor='#363636',
+    font=dict(family='Raleway', color='white'))
+  figure.update_traces(marker_color='#abf7b1')
   return figure
 
   
