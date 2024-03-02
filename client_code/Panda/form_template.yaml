@@ -1,7 +1,8 @@
 container: {type: ColumnPanel}
 components:
 - name: label_1
-  properties: {text: Netflix Content Dashboard, font_size: 32, spacing_above: large}
+  properties: {text: Energie mensuelle de l'éolienne 1 de Temploux, font_size: 32,
+    spacing_above: large}
   type: Label
   layout_properties: {grid_position: 'BMRELW,FIINGE'}
 - name: column_panel_1
@@ -13,12 +14,4 @@ components:
     properties: {height: 296}
     type: Plot
     layout_properties: {grid_position: 'XMFJMY,FRUCOY'}
-- name: plot_2
-  properties: {height: 224}
-  type: Plot
-  layout_properties: {grid_position: 'MYUJNR,BUWGOK'}
-- name: plot_3
-  properties: {height: 221}
-  type: Plot
-  layout_properties: {grid_position: 'MYUJNR,OABLTW'}
 is_package: true

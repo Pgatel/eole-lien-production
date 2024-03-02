@@ -12,4 +12,7 @@ class Panda(PandaTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
-    anvil.server.call('explore')
+    fig = anvil.server.call('create_plots')
+    self.plot_1.figure = fig
+    self.plot_1.layout.yaxis.title = 'kWh'
+    

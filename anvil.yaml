@@ -1,5 +1,5 @@
 allow_embedding: false
-package_name: Material_Design_1
+package_name: Panda_plot
 db_schema:
   files:
     client: none
@@ -16,7 +16,7 @@ db_schema:
       type: string
     title: Files
 startup: {type: form, module: Panda}
-name: Material Design 1
+name: Panda plot
 startup_form: null
 runtime_options:
   version: 2
