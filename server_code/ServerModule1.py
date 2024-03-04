@@ -7,6 +7,7 @@ import anvil.server
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
+from datetime import date
 
 @anvil.server.callable
 def create_plots():
@@ -29,6 +30,16 @@ def create_plots():
 @anvil.server.callable
 def get_production(): 
   rows = app_tables.productionmensuelle.search()
-  print(rows)
   return rows
+
+@anvil.server.callable
+def set_production(year, month, production): 
+  date0 = date(year=year, month=month, day=1)
+  print(f'month={date0} production={production}')
+  row = app_tables.productionmensuelle.get(Month=date0)
+  if row is None:
+    app_tables.productionmensuelle.add_row(Month=date0, Production=production)
+  else:
+    print(f"month={row['Month']} Production={row['Production']}")
+    row['Production'] = production
 
