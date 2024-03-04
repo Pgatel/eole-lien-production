@@ -26,4 +26,9 @@ def create_plots():
   fig2.update_yaxes(dtick=100, title='kWh')
   return fig2
 
-  
+@anvil.server.callable
+def get_production(): 
+  rows = app_tables.productionmensuelle.search()
+  print(rows)
+  return rows
+

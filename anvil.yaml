@@ -42,3 +42,4 @@ db_schema:
       admin_ui: {width: 200, order: 1}
       type: number
     title: ProductionMensuelle
+uplink_visible: true
