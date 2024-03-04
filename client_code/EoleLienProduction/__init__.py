@@ -14,7 +14,3 @@ class EoleLienProduction(EoleLienProductionTemplate):
     # Any code you write here will run before the form opens.
     fig = anvil.server.call('create_plots')
     self.plot_1.figure = fig
-
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('set_production', 2024, 2, 83)

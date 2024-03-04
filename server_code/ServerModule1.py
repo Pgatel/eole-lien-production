@@ -11,14 +11,16 @@ from datetime import date
 
 @anvil.server.callable
 def create_plots():
-  file = data_files['Résumé-2021-2023-Court.csv']
-  eole_df = pd.read_csv(file, sep=';')
-  eole_df['Month'] = pd.to_datetime(eole_df['Month'], dayfirst=True)
+  data = app_tables.productionmensuelle.search()
+  data_list = [dict(row) for row in data]
+  eole_df = pd.DataFrame(data_list)
+  print(eole_df.head())
+  #eole_df['Month'] = pd.to_datetime(eole_df['Month'], dayfirst=True)
      
-    # Make the plot!
-  fig2 = px.bar(eole_df, x="Month", y="Total (MWh)", color="Total (MWh)",
+  # Make the plot!
+  fig2 = px.bar(eole_df, x="Month", y="Production", color="Production",
                 barmode="group",
-                text="Total (MWh)",
+                text="Production",
                 color_continuous_scale='blugrn',
                )
   fig2.update_layout(font_family='Arial', title_font_size=24,

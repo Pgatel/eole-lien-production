@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"BKIYNI":10,"FIINGE":50,"ONSBRT":50,"XRFNTM":10}'}
+  properties: {col_widths: '{"BKIYNI":10,"FIINGE":50,"ONSBRT":50}'}
 components:
 - name: image_1
   properties: {role: null, vertical_align: center, height: 109, tooltip: '', border: '',
@@ -20,11 +20,6 @@ components:
     bold: true, underline: true, icon: ''}
   type: Label
   layout_properties: {grid_position: 'BMRELW,FIINGE MCZDNF,ONSBRT'}
-- name: button_1
-  properties: {text: test}
-  type: Button
-  layout_properties: {grid_position: 'BMRELW,FIINGE MCZDNF,XRFNTM'}
-  event_bindings: {click: button_1_click}
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
