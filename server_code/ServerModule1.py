@@ -26,7 +26,7 @@ def create_plots():
   fig2.update_layout(font_family='Arial', title_font_size=24,
                      margin={'l': 10, 'r': 10, 't': 10, 'b': 10})
   fig2.update_xaxes(tickangle=90, dtick='M1')
-  fig2.update_yaxes(dtick=100, title='kWh')
+  fig2.update_yaxes(dtick=100, title='MWh')
   return fig2
 
 @anvil.server.callable
