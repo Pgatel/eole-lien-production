@@ -41,5 +41,8 @@ db_schema:
     - name: Production
       admin_ui: {width: 200, order: 1}
       type: number
+    - name: Complete
+      admin_ui: {width: 200, order: 2}
+      type: bool
     title: ProductionMensuelle
 uplink_visible: true

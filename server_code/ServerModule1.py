@@ -14,8 +14,6 @@ def create_plots():
   data = app_tables.productionmensuelle.search()
   data_list = [dict(row) for row in data]
   eole_df = pd.DataFrame(data_list)
-  print(eole_df.head())
-  #eole_df['Month'] = pd.to_datetime(eole_df['Month'], dayfirst=True)
      
   # Make the plot!
   fig2 = px.bar(eole_df, x="Month", y="Production", color="Production",
@@ -35,13 +33,13 @@ def get_production():
   return rows
 
 @anvil.server.callable
-def set_production(year, month, production): 
+def set_production(year, month, production, complete): 
   date0 = date(year=year, month=month, day=1)
   print(f'month={date0} production={production}')
   row = app_tables.productionmensuelle.get(Month=date0)
   if row is None:
-    app_tables.productionmensuelle.add_row(Month=date0, Production=production)
+    app_tables.productionmensuelle.add_row(Month=date0, Production=production, Complete=complete)
   else:
     print(f"month={row['Month']} Production={row['Production']}")
     row['Production'] = production
-
+    row['Complete'] = complete
