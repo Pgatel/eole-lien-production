@@ -14,16 +14,18 @@ def create_plots():
   data = app_tables.productionmensuelle.search()
   data_list = [dict(row) for row in data]
   eole_df = pd.DataFrame(data_list)
-     
+  eole_df.set_index('Month', inplace=True)
+       
   # Make the plot!
-  lt_production = eole_df['Production'].to_list()
-  lc_production = eole_df['Complete']
+  lt_production = eole_df.itertuples(index=False)
+  print(lt_production)
+  lc_production = eole_df['Production']
   print(lc_production)
-  st_production = [f'{prod:8.3f}' for prod in lt_production]
+  st_production = [f'{prod:8.3f}' for prod in eole_df['Production'].to_list()]
   sc_production = [prod for prod in lc_production]
-  fig2 = px.bar(eole_df, x="Month", y="Production", color="Production",
+  fig2 = px.bar(eole_df, x=eole_df.index, y="Production", color=sc_production,
                 barmode="group",
-                text=st_production_production,
+                text=st_production,
                 color_continuous_scale='mint',
                )
   fig2.update_layout(font_family='Arial', title_font_size=24,
