@@ -16,10 +16,15 @@ def create_plots():
   eole_df = pd.DataFrame(data_list)
      
   # Make the plot!
+  lt_production = eole_df['Production'].to_list()
+  lc_production = eole_df['Complete']
+  print(lc_production)
+  st_production = [f'{prod:8.3f}' for prod in lt_production]
+  sc_production = [prod for prod in lc_production]
   fig2 = px.bar(eole_df, x="Month", y="Production", color="Production",
                 barmode="group",
-                text="Production",
-                color_continuous_scale='blugrn',
+                text=st_production_production,
+                color_continuous_scale='mint',
                )
   fig2.update_layout(font_family='Arial', title_font_size=24,
                      margin={'l': 10, 'r': 10, 't': 10, 'b': 10})
