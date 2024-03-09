@@ -15,7 +15,7 @@ def create_plots():
   eole_df = pd.DataFrame(data_list)
   eole_df.set_index('Month', inplace=True)
 
-  st_production = [f'*{prod:8.3f}' for prod in eole_df['Production'].to_list()]
+  st_production = [f'{prod:8.3f}' for prod in eole_df['Production'].to_list()]
   st_production[-1] = f'(Incomplete) {st_production[-1]}'
 
   eole_df = eole_df.rename(columns={'Production': 'MWh', })
