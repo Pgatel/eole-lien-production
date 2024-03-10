@@ -16,7 +16,7 @@ def create_plots():
   eole_df.set_index('Month', inplace=True)
 
   st_production = [f'{prod:8.3f}' for prod in eole_df['Production'].to_list()]
-  st_production[-1] = f'(Incomplete) {st_production[-1]}'
+  hover_template = ['<b>%{y:8.3f} MWh</b>' if i < len(st_production)-1 else '** Partial **<BR><b>%{y:8.3f} MWh</b><BR>** Partial **' for i in range(len(st_production))]
 
   eole_df = eole_df.rename(columns={'Production': 'MWh', })
 
@@ -29,7 +29,7 @@ def create_plots():
                     margin={'l': 10, 'r': 10, 't': 10, 'b': 10}, 
                     hovermode='x unified', hoverlabel=dict(bgcolor='white'),
                    )
-  fig.update_traces(hovertemplate=('<b>%{y:8.3f} MWh</b>'), hovertext=st_production)
+  fig.update_traces(hovertemplate=hover_template, hovertext=st_production)
   fig.update_xaxes(dtick='M1', tickformat='%b-%Y')
   fig.update_yaxes(dtick=100, title='MWh')
 
