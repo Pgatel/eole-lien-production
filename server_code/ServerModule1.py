@@ -40,9 +40,11 @@ def create_plots():
   fig.update_xaxes(dtick='M1', tickformat='%b-%Y')
   fig.update_yaxes(dtick=100, title='MWh')
 
+  last_complete = eole_df['Complete'][last]
+  print(last_complete)
   last_hover_template = f'Partial<BR>At {s_date}:<BR><BR><b>%{{y:8.3f}} MWh</b><BR>'
-  hover_template = ['<b>%{y:8.3f} MWh</b>' if i < last else last_hover_template for i in r_data]
-  color_lines = [l_production[i] if i < last else 'gold' for i in r_data]
+  hover_template = ['<b>%{y:8.3f} MWh</b>' if i < last or last_complete else last_hover_template for i in r_data]
+  color_lines = [l_production[i] if i < last or last_complete else 'gold' for i in r_data]
   normal_marker = dict(line=dict(width=1, color='Teal'), )
   last_marker = dict(line=dict(width=2, color='red'), )
   lines = [normal_marker if i < len(st_production)-1 else last_marker for i in r_data]
