@@ -23,9 +23,22 @@ components:
 - name: date_picker_1
   properties: {spacing_above: large, spacing_below: large}
   type: DatePicker
-  layout_properties: {grid_position: 'BMRELW,FLZRFI'}
+  layout_properties: {grid_position: 'BMRELW,FLZRFI EZBDHE,URRXQM'}
   data_bindings:
   - {property: format, code: '', writeback: false}
+- name: backward
+  properties: {text: '', icon: 'fa:arrow-circle-left', spacing_above: small, spacing_below: small,
+    background: '', tooltip: One day before}
+  type: Button
+  layout_properties: {grid_position: 'BMRELW,FLZRFI USCPZB,HSSCKR'}
+  event_bindings: {click: backward_click}
+  data_bindings:
+  - {property: border, code: '', writeback: false}
+- name: forward
+  properties: {text: '', icon: 'fa:arrow-circle-right', icon_align: top, tooltip: One day after}
+  type: Button
+  layout_properties: {grid_position: 'BMRELW,FLZRFI USCPZB,QCOMED'}
+  event_bindings: {click: forward_click}
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
