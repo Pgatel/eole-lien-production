@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"BKIYNI":10,"FIINGE":50,"ONSBRT":50}'}
+  properties: {col_widths: '{"BKIYNI":10,"FIINGE":60,"ONSBRT":50,"WJYCYL":10}'}
 components:
 - name: image_1
   properties: {role: null, vertical_align: center, height: 109, tooltip: '', border: '',
@@ -20,6 +20,16 @@ components:
     bold: true, underline: true, icon: ''}
   type: Label
   layout_properties: {grid_position: 'BMRELW,FIINGE MCZDNF,ONSBRT'}
+- name: linear_panel_1
+  properties: {}
+  type: LinearPanel
+  layout_properties: {grid_position: 'BMRELW,WJYCYL'}
+  components:
+  - name: button_day
+    properties: {text: Jour}
+    type: Button
+    layout_properties: {}
+    event_bindings: {click: button_day_click}
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
