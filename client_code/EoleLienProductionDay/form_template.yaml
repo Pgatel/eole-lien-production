@@ -31,11 +31,13 @@ components:
     layout_properties: {}
     event_bindings: {click: button_month_click}
 - name: date_picker_1
-  properties: {spacing_above: large, spacing_below: large, min_date: 01-06-2021}
+  properties: {spacing_above: large, spacing_below: large, format: '%d-%m-%Y', max_date: '',
+    min_date: 01-06-2021}
   type: DatePicker
-  layout_properties: {grid_position: 'BMRELW,FLZRFI EZBDHE,URRXQM'}
+  layout_properties: {grid_position: 'BMRELW,FLZRFI KMADMD,LQGXID'}
   data_bindings:
-  - {property: format, code: '%d-%m-%Y', writeback: false}
+  - {property: font, code: '''Arial''', writeback: false}
+  event_bindings: {change: date_picker_1_change}
 - name: backward
   properties: {text: '', icon: 'fa:arrow-circle-left', spacing_above: small, spacing_below: small,
     background: '', tooltip: One day before}
