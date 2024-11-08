@@ -79,3 +79,33 @@ def set_production(year, month, production, complete):
     print(f"month={row['Month']} Production={row['Production']}")
     row['Production'] = production
     row['Complete'] = complete
+
+@anvil.server.callable
+def plot_day(day):
+  data = app_tables.productionday.search(Day=day)
+  print(data)
+  l_date = [row['Date'] for row in data]
+  l_power = [row['Power'] for row in data]
+  dict_data = {'Date': l_date, 'Power': l_power}
+  
+  eole_df = pd.DataFrame(dict_data)
+  eole_df.set_index('Date', inplace=True)
+  
+  st_power = [f'{prod:4.0f}' for prod in l_power]
+  r_data = range(len(l_power))
+  last = len(l_power) - 1
+
+  fig = go.Figure()
+  fig.add_trace(go.Scatter(x=eole_df.index, y=eole_df['Power'], name='Power', mode='lines+markers',
+                           line={'color': 'purple'}))
+  fig.update_layout(font_family='Arial', title_font_size=24,
+                    margin={'l': 10, 'r': 10, 't': 10, 'b': 10},
+                    hovermode='x unified', hoverlabel=dict(bgcolor='white'),
+                    )
+  fig.update_xaxes(tickangle=45, tickformat="%H:%M")
+  fig.update_traces(textposition='bottom right', )
+
+  fig.update_xaxes(showspikes=True, spikecolor="green", spikesnap="cursor", spikemode="across")
+  fig.update_yaxes(showspikes=True, spikecolor="blue", spikethickness=2)
+  fig.update_layout(spikedistance=1000, hoverdistance=100)
+  return fig

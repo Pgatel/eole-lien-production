@@ -1,48 +1,48 @@
-services:
-- source: /runtime/services/tables.yml
-  client_config: {}
-  server_config: {}
-- source: /runtime/services/anvil/files.yml
-  client_config: {}
-  server_config: {file_table: files}
-startup: {type: form, module: EoleLienProduction}
-package_name: Eole_Lien_production
 allow_embedding: false
-name: Eole Lien production
-runtime_options:
-  version: 2
-  client_version: '3'
-  server_version: python3-full
-  server_spec: {base: python310-standard}
-metadata: {logo_img: 'asset:Logo-Eole-Lien-Vignette50.jpg'}
-startup_form: null
 db_schema:
   files:
     client: none
-    server: full
     columns:
-    - name: path
-      admin_ui: {order: 0, width: 200}
+    - admin_ui: {order: 0, width: 200}
+      name: path
       type: string
-    - name: file
-      admin_ui: {order: 1, width: 200}
+    - admin_ui: {order: 1, width: 200}
+      name: file
       type: media
-    - name: file_version
-      admin_ui: {order: 2, width: 200}
+    - admin_ui: {order: 2, width: 200}
+      name: file_version
       type: string
+    server: full
     title: Files
   productionmensuelle:
     client: full
-    server: full
     columns:
-    - name: Month
-      admin_ui: {width: 200, order: 0}
+    - admin_ui: {order: 0, width: 200}
+      name: Month
       type: date
-    - name: Production
-      admin_ui: {width: 200, order: 1}
+    - admin_ui: {order: 1, width: 200}
+      name: Production
       type: number
-    - name: Complete
-      admin_ui: {width: 200, order: 2}
+    - admin_ui: {order: 2, width: 200}
+      name: Complete
       type: bool
+    server: full
     title: ProductionMensuelle
+metadata: {logo_img: 'asset:Logo-Eole-Lien-Vignette50.jpg'}
+name: Eole Lien production
+package_name: Eole_Lien_production
+runtime_options:
+  client_version: '3'
+  server_spec: {base: python310-standard}
+  server_version: python3-full
+  version: 2
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+- client_config: {}
+  server_config: {file_table: files}
+  source: /runtime/services/anvil/files.yml
+startup: {module: EoleLienProduction, type: form}
+startup_form: null
 uplink_visible: true
