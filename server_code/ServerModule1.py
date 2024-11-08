@@ -81,7 +81,7 @@ def set_production(year, month, production, complete):
     row['Complete'] = complete
 
 @anvil.server.callable
-def plot_day(day):
+def plot_day(day, year):
   data = app_tables.productionday.search(Day=day)
   print(data)
   l_date = [row['Date'] for row in data]
