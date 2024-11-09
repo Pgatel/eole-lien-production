@@ -25,7 +25,7 @@ class EoleLienProductionDay(EoleLienProductionDayTemplate):
     self.date_picker_1.date = to_day.strftime('%d-%m-%Y')
     self.date_picker_1.max_date = to_day.strftime("%Y-%m-%d")
 
-    fig = anvil.server.call('create_plots', self.this_day, self.this_year)
+    fig = anvil.server.call('plot_day', self.this_day, self.this_year)
     self.plot_1.figure = fig
 
 
