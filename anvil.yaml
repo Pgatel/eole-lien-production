@@ -14,6 +14,35 @@ db_schema:
       type: string
     server: full
     title: Files
+  productionday:
+    client: full
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: Date
+      type: datetime
+    - admin_ui: {order: 1, width: 200}
+      name: Power
+      type: number
+    - admin_ui: {order: 2, width: 200}
+      name: Vwind
+      type: number
+    - admin_ui: {order: 3, width: 200}
+      name: NRotor
+      type: number
+    - admin_ui: {order: 4, width: 200}
+      name: Status
+      type: number
+    - admin_ui: {order: 5, width: 200}
+      name: Day
+      type: number
+    - admin_ui: {order: 6, width: 200}
+      name: Energy
+      type: number
+    - admin_ui: {order: 7, width: 200}
+      name: Diff
+      type: number
+    server: full
+    title: ProductionDay
   productionmensuelle:
     client: full
     columns:
