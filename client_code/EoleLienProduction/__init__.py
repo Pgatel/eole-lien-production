@@ -5,14 +5,18 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import plotly.graph_objects as go
+def error_handler(err):
+  alert(str(err), title="An error has occurred")
 
 class EoleLienProduction(EoleLienProductionTemplate):
+
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    set_default_error_handling(error_handler)
 
     # Any code you write here will run before the form opens.
-    fig = anvil.server.call('create_plots')
+    fig = anvil.server.call('plot_month')
     self.plot_1.figure = fig
 
   def button_day_click(self, **event_args):
