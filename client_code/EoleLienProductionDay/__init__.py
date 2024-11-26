@@ -70,7 +70,5 @@ class EoleLienProductionDay(EoleLienProductionDayTemplate):
 
   def button_month_click(self, **event_args):
     """This method is called when the button is clicked"""
-    #open_form('EoleLienProduction')
-    fig = anvil.server.call('plot_month')
-    self.plot_1.figure = fig
+    open_form('EoleLienProduction')
 
