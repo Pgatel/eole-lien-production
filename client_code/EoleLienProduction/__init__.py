@@ -16,7 +16,8 @@ class EoleLienProduction(EoleLienProductionTemplate):
     set_default_error_handling(error_handler)
 
     # Any code you write here will run before the form opens.
-    fig = anvil.server.call('plot_month')
+    eole_df = anvil.server.call('get_months')
+    fig = anvil.server.call('create_plots', eole_df)
     self.plot_1.figure = fig
 
   def button_day_click(self, **event_args):

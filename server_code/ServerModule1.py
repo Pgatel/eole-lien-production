@@ -10,10 +10,10 @@ import plotly.graph_objects as go
 from datetime import datetime, date
 
 @anvil.server.callable
-def create_plots():
-  data = app_tables.productionmensuelle.search()
-  data_list = [dict(row) for row in data]
-  eole_df = pd.DataFrame(data_list)
+def create_plots(eole_df):
+  #data = app_tables.productionmensuelle.search()
+  #data_list = [dict(row) for row in data]
+  #eole_df = pd.DataFrame(data_list)
   eole_df.set_index('Month', inplace=True)
   l_production = eole_df['Production'].to_list()
   st_production = [f'{prod:8.3f}' for prod in l_production]
