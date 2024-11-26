@@ -10,12 +10,18 @@ import plotly.graph_objects as go
 from datetime import datetime, date
 
 @anvil.server.callable
-def create_plots(eole_df):
+def create_plots(s_df):
   #data = app_tables.productionmensuelle.search()
   #data_list = [dict(row) for row in data]
   #eole_df = pd.DataFrame(data_list)
+  data_json = pd.read_json(s_df)
+  # Charger les données JSON dans un DataFrame
+  eole_df = pd.DataFrame(list(data_json['MWh'].items()), columns=['Month', 'MWh'])
+  # Convertir la colonne 'Month' de timestamp en date
+  eole_df['Month'] = pd.to_datetime(eole_df['Month'].astype(int) / 1000)
+  print(eole_df)
   eole_df.set_index('Month', inplace=True)
-  l_production = eole_df['Production'].to_list()
+  l_production = eole_df['MWh'].to_list()
   st_production = [f'{prod:8.3f}' for prod in l_production]
   r_data = range(len(l_production))
   last = len(l_production) - 1
@@ -40,7 +46,7 @@ def create_plots(eole_df):
   fig.update_xaxes(dtick='M1', tickformat='%b-%Y')
   fig.update_yaxes(dtick=100, title='MWh')
 
-  last_complete = eole_df['Complete'][last]
+  last_complete = eole_df['MWh'].iloc[-1]
   print(last_complete)
   last_hover_template = f'Partial<BR>At {s_date}:<BR><BR><b>%{{y:8.3f}} MWh</b><BR>'
   hover_template = ['<b>%{y:8.3f} MWh</b>' if i < last or last_complete else last_hover_template for i in r_data]
