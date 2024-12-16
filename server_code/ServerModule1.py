@@ -11,6 +11,7 @@ from datetime import datetime, date
 
 @anvil.server.callable
 def create_plots(s_df):
+  l_total = [2501, 3251, 5625, 6525]
   data_json = pd.read_json(s_df)
   # Charger les données JSON dans un DataFrame
   eole_df = pd.DataFrame(list(data_json['MWh'].items()), columns=['Month', 'MWh'])
@@ -56,7 +57,7 @@ def create_plots(s_df):
   fig.update_xaxes(showspikes=True, spikecolor="green", spikesnap="cursor", spikemode="across")
   fig.update_yaxes(showspikes=True, spikecolor="orange", spikethickness=2)
   fig.update_layout(spikedistance=1000, hoverdistance=100)
-  return fig
+  return fig, l_total
 
 @anvil.server.callable
 def get_production(): 
