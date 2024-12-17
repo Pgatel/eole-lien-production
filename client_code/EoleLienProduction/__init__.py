@@ -17,7 +17,6 @@ class EoleLienProduction(EoleLienProductionTemplate):
 
     # Any code you write here will run before the form opens.
     s_df = anvil.server.call('get_months')
-    print(s_df)
     fig, l_total = anvil.server.call('create_plots', s_df)
     self.plot_1.figure = fig
     self.total2021.text = "Total 2021: {} MWh".format(l_total[0])

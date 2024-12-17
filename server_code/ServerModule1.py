@@ -17,6 +17,7 @@ def create_plots(s_df):
   eole_df = pd.DataFrame(list(data_json['MWh'].items()), columns=['Month', 'MWh'])
   eole_df.set_index('Month', inplace=True)
   l_production = eole_df['MWh'].to_list()
+  print(l_production)
   st_production = [f'{prod:8.3f}' for prod in l_production]
   r_data = range(len(l_production))
   last = len(l_production) - 1
