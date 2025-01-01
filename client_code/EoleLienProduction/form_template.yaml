@@ -33,7 +33,7 @@ components:
 - components:
   - data_bindings: []
     layout_properties: {grid_position: 'CHILKF,GRUHAR'}
-    name: total2021
+    name: total1
     properties: {align: center, italic: true}
     type: Label
   layout_properties: {grid_position: 'FYRGYG,PPXUSO'}
@@ -42,7 +42,7 @@ components:
   type: ColumnPanel
 - components:
   - layout_properties: {grid_position: 'MPWBHC,XGXIKD'}
-    name: total2022
+    name: total2
     properties: {align: center}
     type: Label
   layout_properties: {grid_position: 'FYRGYG,LXCYTO'}
@@ -51,7 +51,7 @@ components:
   type: ColumnPanel
 - components:
   - layout_properties: {grid_position: 'WHITAI,VSVRFP'}
-    name: total2023
+    name: total3
     properties: {align: center}
     type: Label
   layout_properties: {grid_position: 'FYRGYG,UAKUEM'}
@@ -60,7 +60,7 @@ components:
   type: ColumnPanel
 - components:
   - layout_properties: {grid_position: 'IVHZVX,ALMJCO'}
-    name: total2024
+    name: total4
     properties: {align: center}
     type: Label
   layout_properties: {grid_position: 'FYRGYG,LQFHGK'}

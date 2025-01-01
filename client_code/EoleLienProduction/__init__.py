@@ -23,10 +23,11 @@ class EoleLienProduction(EoleLienProductionTemplate):
     print(l_total)
     fig = anvil.server.call('create_plots', s_df)
     self.plot_1.figure = fig
-    self.total2021.text = "Total 2021: {} MWh".format(l_total[0])
-    self.total2022.text = "Total 2022: {} MWh".format(l_total[1])
-    self.total2023.text = "Total 2023: {} MWh".format(l_total[2])
-    self.total2024.text = "Total 2024: {} MWh".format(l_total[3])
+    l_year = [i for i in range(2022, 2026)]
+    self.total1.text = "Total {}: {} MWh".format(l_year[0], l_total[0])
+    self.total2.text = "Total {}: {} MWh".format(l_year[1], l_total[1])
+    self.total3.text = "Total {}: {} MWh".format(l_year[2], l_total[2])
+    self.total4.text = "Total {}: {} MWh".format(l_year[3], l_total[3])
 
   def button_day_click(self, **event_args):
     """This method is called when the button is clicked"""
