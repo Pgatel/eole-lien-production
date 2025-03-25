@@ -20,7 +20,6 @@ class EoleLienProduction(EoleLienProductionTemplate):
     s_total = anvil.server.call('get_sum_per_year')
 
     l_total = s_total.strip('[]').replace('"', '').split(', ')
-    print(l_total)
     fig = anvil.server.call('create_plots', s_df)
     self.plot_1.figure = fig
     l_year = [i for i in range(2022, 2026)]
