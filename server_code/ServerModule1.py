@@ -43,6 +43,7 @@ def create_plots(s_df):
   colors = [[0.0, 'PowderBlue'], [0.33, 'SkyBlue'], [0.66, 'Teal'], [1.0, '#004d4d']]
 
   fig = Figure(data=[Bar(
+            name='Production',
             x=x_vals,
             y=y_vals,
             text=[f"{v:.3f} MWh" for v in y_vals],       # Affichage des valeurs entières
