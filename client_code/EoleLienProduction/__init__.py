@@ -16,6 +16,7 @@ class EoleLienProduction(EoleLienProductionTemplate):
     set_default_error_handling(error_handler)
 
     # Any code you write here will run before the form opens.
+    anvil
     s_df = anvil.server.call('get_months')
     s_total = anvil.server.call('get_sum_per_year')
 
