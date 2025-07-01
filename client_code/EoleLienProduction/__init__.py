@@ -16,7 +16,7 @@ class EoleLienProduction(EoleLienProductionTemplate):
     set_default_error_handling(error_handler)
 
     # Any code you write here will run before the form opens.
-    anvil
+    anvil.server.call('reset_sqlalchemy_session')
     s_df = anvil.server.call('get_months')
     s_total = anvil.server.call('get_sum_per_year')
 
