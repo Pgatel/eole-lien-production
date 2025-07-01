@@ -101,3 +101,30 @@ def set_production(year, month, production, complete):
     print(f"month={row['Month']} Production={row['Production']}")
     row['Production'] = production
     row['Complete'] = complete
+
+# Le reset de session exposé comme fonction callable
+@anvil.server.callable
+def reset_sqlalchemy_session():
+  """
+    Callable Anvil qui ferme proprement une session SQLAlchemy
+    et en recrée une nouvelle propre.
+    """
+  session = Session()
+  try:
+    session.rollback()
+    print("Rollback effectué.")
+  except Exception as e:
+    print(f"Erreur lors du rollback : {e}")
+
+  try:
+    session.close()
+    print("Session fermée.")
+  except Exception as e:
+    print(f"Erreur lors de la fermeture : {e}")
+
+    # Nouvelle session propre
+  session = Session()
+  print("Nouvelle session créée.")
+
+  # Tu peux si besoin retourner un indicateur
+  return "Session reset avec succès"
