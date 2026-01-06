@@ -23,7 +23,7 @@ class EoleLienProduction(EoleLienProductionTemplate):
     l_total = s_total.strip('[]').replace('"', '').split(', ')
     fig = anvil.server.call('create_plots', s_df)
     self.plot_1.figure = fig
-    l_year = [i for i in range(2022, 2026)]
+    l_year = [i for i in range(2023, 2027)]
     self.total1.text = "Total {}: {} MWh".format(l_year[0], l_total[0])
     self.total2.text = "Total {}: {} MWh".format(l_year[1], l_total[1])
     self.total3.text = "Total {}: {} MWh".format(l_year[2], l_total[2])
