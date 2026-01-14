@@ -82,6 +82,32 @@ def create_plots(s_df):
   fig.update_xaxes(showspikes=True, spikecolor="green", spikesnap="cursor", spikemode="across")
   fig.update_yaxes(showspikes=True, spikecolor="orange", spikethickness=2)
   fig.update_layout(spikedistance=1000, hoverdistance=100)
+
+  # --- séparations d'années : juste avant chaque janvier ---
+  for dt in eole_df_recent.index:
+    if dt.month == 1:
+      # petit décalage vers la gauche (au choix)
+      x_line = dt - pd.Timedelta(days=15)
+  
+      fig.add_vline(
+        x=x_line,
+        line_width=2,
+        line_dash="dot",
+        line_color="gray",
+        opacity=0.6
+      )
+
+      # Annotation de l'année (optionnelle)
+      fig.add_annotation(
+        x=x_line,
+        y=0.99,
+        xref="x",
+        yref="paper",
+        text=str(dt.year),
+        showarrow=False,
+        font=dict(size=14, color="gray"),
+        xanchor="left"
+      )  
   return fig
 
   
